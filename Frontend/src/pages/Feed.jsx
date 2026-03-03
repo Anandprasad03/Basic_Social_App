@@ -5,7 +5,8 @@ const Feed = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/posts")
+    const api = import.meta.env.VITE_BACKEND_URL
+    axios.get(api + "/posts")
       .then((response) => {
         setPosts(response.data.posts);
       })

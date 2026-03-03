@@ -8,9 +8,11 @@ const CreatePost = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
 
+        const api = import.meta.env.VITE_BACKEND_URL;
+
         const formData = new FormData(event.target)
 
-        axios.post("http://localhost:3000/create-post", formData)
+        axios.post(api + "/create-post", formData)
             .then((response) => {
                 console.log("Post created:", response.data);
                 event.target.reset();
